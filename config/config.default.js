@@ -16,8 +16,43 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1585106764896_4501';
 
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = [
+    'errorHandler',
+  ];
 
+  config.swaggerdoc = {
+    dirScanner: './app/controller',
+    apiInfo: {
+      title: 'myApiDocs',
+      description: 'swagger-ui for egg',
+      version: '1.0.0',
+    },
+    schemes: [ 'http', 'https' ],
+    consumes: [ 'application/json' ],
+    produces: [ 'application/json' ],
+    enableSecurity: false,
+    routerMap: true,
+    enable: true,
+  };
+  config.jwt = {
+    secret: 'asodhoasHOSAHFODHASOHDH(@)!&$*()*(UY)SA*DHASIDKLSAD:?1',
+    enable: true,
+    match: /^\/api/,
+  };
+  config.mongoose = {
+    client: {
+      url: 'mongodb://101.132.159.200:27017/egg',
+      options: {
+        autoReconnect: true,
+        reconnectTries: Number.MAX_VALUE,
+        bufferMaxEntries: 0,
+        auth: {
+          user: 'eggAdmin',
+          password: '123456',
+        },
+      },
+    },
+  };
   // add your user config here
   const userConfig = {
     sequelize: {

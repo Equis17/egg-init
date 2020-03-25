@@ -2,14 +2,27 @@
 
 const Controller = require('egg').Controller;
 
+/**
+ * @Controller 用户管理
+ * */
 class UserController extends Controller {
-  async index() {
-    const { ctx } = this;
-    console.dir(ctx);
-    ctx.body = {
-      ip: ctx.request.ip,
-      message: ctx.request.header['user-agent'],
-    };
+  /**
+   * @summary createUser
+   * @description createUser
+   * @router post /api/user
+   * @request body createUserRequest *body
+   * @response 200 baseResponse createSuccess
+   *  */
+  async create() {
+    const { ctx, service } = this;
+    ctx.validate(ctx.rule.createUserRequest);
+    const payload = ctx.request.body || {};
+    const res = await service.user.create(payload);
+    ctx.helper.success({ ctx, res });
+  }
+  async getAll() {
+    const { ctx, service } = this;
+    ctx.body = await service.user.getAll();
   }
 }
 
