@@ -1,5 +1,5 @@
 'use strict';
-const Service = require('egg').Service;
+const { Service } = require('egg');
 
 class ActionTokenService extends Service {
   async apply(_id) {
@@ -8,9 +8,10 @@ class ActionTokenService extends Service {
       data: {
         _id,
       },
-      exp: Math.floor(Date.now() / 1000) + (60 * 60 * 6),
+      exp: Math.floor(Date.now() / 1000 + (60 * 60 * 7)),
     }, ctx.app.config.jwt.secret);
   }
+
 }
 
 module.exports = ActionTokenService;

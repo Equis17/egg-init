@@ -34,11 +34,6 @@ module.exports = appInfo => {
     routerMap: true,
     enable: true,
   };
-  config.jwt = {
-    secret: 'asodhoasHOSAHFODHASOHDH(@)!&$*()*(UY)SA*DHASIDKLSAD:?1',
-    enable: true,
-    match: /^\/api/,
-  };
   config.mongoose = {
     client: {
       url: 'mongodb://101.132.159.200:27017/egg',
@@ -52,6 +47,11 @@ module.exports = appInfo => {
         },
       },
     },
+  };
+  config.jwt = {
+    secret: 'Great4-M',
+    enable: true, // default is false
+    match: /^\/api/, // optional
   };
   // add your user config here
   const userConfig = {
