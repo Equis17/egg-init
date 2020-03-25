@@ -141,6 +141,9 @@ class UserService extends Service {
     return this.ctx.model.User.findByIdAndUpdate(id, values);
   }
 
+  async getAll() {
+    return this.ctx.model.User.find();
+  }
 }
 
 

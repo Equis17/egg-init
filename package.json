@@ -7,6 +7,7 @@
     "declarations": true
   },
   "dependencies": {
+    "await-stream-ready": "^1.0.1",
     "egg": "^2.15.1",
     "egg-bcrypt": "^1.1.0",
     "egg-jwt": "^3.1.7",
@@ -15,8 +16,10 @@
     "egg-sequelize": "^5.2.1",
     "egg-swagger-doc-feat": "^2.2.13",
     "egg-validate": "^2.0.2",
+    "image-downloader": "^3.5.0",
     "moment": "^2.24.0",
     "mysql2": "^2.1.0",
+    "stream-wormhole": "^1.1.0",
     "swagger-doc": "^0.3.0"
   },
   "devDependencies": {
